@@ -11,3 +11,4 @@
 
 # Ignorar arquivos do PhpStorm
 .idea/
+.vscode
