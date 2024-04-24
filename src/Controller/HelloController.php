@@ -42,4 +42,10 @@ class HelloController
     {
         return new Response('Olá, ave!');
     }
+
+    #[Route('/felinos')]
+    public function felino(): Response
+    {
+        return new Response('Olá, felino!');
+    }
 }
