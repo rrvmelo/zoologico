@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use function Symfony\Component\string\u;
 
 class HelloController 
 {
@@ -13,51 +14,12 @@ class HelloController
         return new Response('Olá, Mundo!');
     }
 
-    #[Route('/dinossauros')]
-    public function dinossauro(): Response
+    #[Route('/animal/{slug}')]
+    public function animal(string $slug=null): Response
     {
-        return new Response('Olá, dinossáuro!');
+        $newSlug = str_replace('-', ' ',$slug);
+        $newSlug = u($newSlug)->title(true);
+        return new Response('Olá, '.$newSlug);
     }
     
-    #[Route('/mamiferos')]
-    public function mamifero(): Response
-    {
-        return new Response('Olá, mamifero!');
-    }
-
-    #[Route('/invertebrados')]
-    public function invertebrado(): Response
-    {
-        return new Response('Olá, invertebrado!');
-    }
-
-    #[Route('/insetos')]
-    public function inseto(): Response
-    {
-        return new Response('Olá, inseto!');
-    }
-
-    #[Route('/aves')]
-    public function ave(): Response
-    {
-        return new Response('Olá, ave!');
-    }
-
-    #[Route('/felinos')]
-    public function felino(): Response
-    {
-        return new Response('Olá, felino!');
-    }
-
-    #[Route('/caninos')]
-    public function canino(): Response
-    {
-        return new Response('Olá, canino!');
-    }
-
-    #[Route('/roedores')]
-        public function roedor(): Response
-    {
-        return new Response('Olá, roedor!');
-    }
 }
