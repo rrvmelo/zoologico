@@ -1,9 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent()}} - Home{% endblock %}
+{% block stylesheets %}
+
+     <!-- novo CSS-->
+    {{ parent() }}
+ {% endblock %}
+
+{% block body %}
+
 <h1>{{ title }}</h1>
 Bem-vindo ao nosso site
 
 <ul>
 {# Este é o laço de usuários#}
+<!-- Comentário de HTML -->
     {% for user in users %}
-       <li>Nome: {{ user.name }} - Fone: {{ user.phone }}</li>
+    
+    <li>
+    {% if user.name == 'Eme Mariano' %} 
+        >> 
+        {% endif %}
+
+       Nome: {{ user.name|lower }} - Fone: {{ user.phone }}
+       </li>
     {% endfor %}
 </ul>
+{% endblock %}
